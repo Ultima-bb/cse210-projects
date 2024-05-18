@@ -7,7 +7,7 @@ class Prompt
         "Did you talk to anyone New, or an old friend? ",
         "Anything significant happen today? ",
         "Any major life changing events in your friend's lives? ",
-        ""
+        "You haven't done anything crazy have you?"
     };
 
     public void getRandomPrompt()
