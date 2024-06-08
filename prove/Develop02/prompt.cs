@@ -2,7 +2,7 @@ using System;
 
 class Prompt
 {   
-    string[] prompts = {
+    string[] _prompts = {
         "Overall, How was your day? ",
         "Did you talk to anyone New, or an old friend? ",
         "Anything significant happen today? ",
@@ -11,10 +11,10 @@ class Prompt
     };
 
     public void getRandomPrompt()
-    {   Random generator = new Random();
-        int randomIndex = generator.Next(0,5);
-        string randomPrompt = prompts[randomIndex]; 
-        Console.WriteLine(randomPrompt);       
+    {   Random _generator = new Random();
+        int _randomIndex = _generator.Next(0,5);
+        string _randomPrompt = _prompts[_randomIndex]; 
+        Console.WriteLine(_randomPrompt);       
     
     }
 }

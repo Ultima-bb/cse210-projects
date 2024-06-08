@@ -1,49 +1,49 @@
-public class Scripture
-{
-    private string Reference { get; set; }
-    private List<Word> Words { get; set; }
-
-    public Scripture(string reference, string text)
+    private class Scripture
     {
-        Reference = reference;
-        Words = text.Split(' ').Select(w => new Word(w)).ToList();
-    }
+        private string _reference { get; set; }
+        private List<Word> _words { get; set; }
 
-    public void Memoryaid()
-    {
-        int wecountyoudont = 0;
-        Random random = new Random();
-        while (wecountyoudont < Words.Count)
+        public Scripture(string reference, string text)
         {
-            Console.Clear();
-            Hiddenword(random);
-            ScriptureMastery();
-            Console.WriteLine("\nPress Enter to continue or type 'done' to exit.");
-            string input = Console.ReadLine();
-            if (input.ToLower() == "done")
-                break;
+            _reference = reference;
+            _words = text.Split(' ').Select(w => new Word(w)).ToList();
+        }
+
+        public void Memoryaid()
+        {
+            int wecountyoudont = 0;
+            Random random = new Random();
+            while (wecountyoudont < _words.Count)
+            {
+                Console.Clear();
+                Hiddenword(random);
+                ScriptureMastery();
+                Console.WriteLine("\nPress Enter to continue or type 'done' to exit.");
+                string input = Console.ReadLine();
+                if (input.ToLower() == "done")
+                    break;
+            }
+        }
+
+        private void Hiddenword(Random random)
+        {
+            int index = random.Next(_words.Count);
+            if (!_words[index]._hideThis)
+            {
+                _words[index]._hideThis = true;
+                Console.WriteLine($"Hidden word: {_words[index]._text}");
+            }
+        }
+
+        private void ScriptureMastery()
+        {
+            Console.WriteLine($"Scripture: {_reference}");
+            foreach (var word in _words)
+            {
+                if (word._hideThis)
+                    Console.Write("[-----] ");
+                else
+                    Console.Write($"{word._text} ");
+            }
         }
     }
-
-    private void Hiddenword(Random random)
-    {
-        int index = random.Next(Words.Count);
-        if (!Words[index].hideThis)
-        {
-            Words[index].hideThis = true;
-            Console.WriteLine($"Hidden word: {Words[index].Text}");
-        }
-    }
-
-    private void ScriptureMastery()
-    {
-        Console.WriteLine($"Scripture: {Reference}");
-        foreach (var word in Words)
-        {
-            if (word.hideThis)
-                Console.Write("[-----] ");
-            else
-                Console.Write($"{word.Text} ");
-        }
-    }
-}

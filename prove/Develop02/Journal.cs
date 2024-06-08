@@ -4,25 +4,25 @@ using System.IO;
 
 class Journal
 {
-    private List<Entry> entries = new List<Entry>();
+    private List<Entry> _entries = new List<Entry>();
 
 
     public void AddEntry()
     {
-        Prompt userInput = new Prompt(); 
-        userInput.getRandomPrompt();
-        string content = Console.ReadLine();
+        Prompt _userInput = new Prompt(); 
+        _userInput.getRandomPrompt();
+        string _content = Console.ReadLine();
         Console.WriteLine("Your daily progress has been recorded.");
-        Entry entry = new Entry(content);
-        entries.Add(entry);
+        Entry _entry = new Entry(_content);
+        _entries.Add(_entry);
     } 
     public void SaveEntry()
     {
-        using (StreamWriter outputFile = new StreamWriter("myJournal"))
+        using (StreamWriter _outputFile = new StreamWriter("myJournal"))
         {
-            foreach (Entry entry in entries)
+            foreach (Entry entry in _entries)
             {
-            outputFile.WriteLine(entry.SaveString());
+            _outputFile.WriteLine(entry.SaveString());
 
             }
             
@@ -33,7 +33,7 @@ class Journal
 
     public void DisplayEntries()
     {
-        if (entries.Count == 0)
+        if (_entries.Count == 0)
         {
             Console.WriteLine("Nothing here.");
         }
@@ -41,26 +41,26 @@ class Journal
         {
 
             Console.WriteLine("Current Entries");
-            foreach (Entry entry in entries)
+            foreach (Entry _entry in _entries)
             {
-                entry.Display();
+                _entry.Display();
             }
         }
     }
     public void LoadEntries()
     {  
-        string filename = "myJournal";
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string _filename = "myJournal";
+        string[] _lines = System.IO.File.ReadAllLines(_filename);
 
-        foreach (string line in lines)
+        foreach (string line in _lines)
         {
             string[] parts = line.Split("|");
 
-            DateTime Date = DateTime.Parse(parts[0]);
+            DateTime _date = DateTime.Parse(parts[0]);
             
-            string Content = parts[1];
-            Entry entry = new Entry(Content,Date);  
-            entries.Add(entry);      
+            string _content = parts[1];
+            Entry entry = new Entry(_content,_date);  
+            _entries.Add(entry);      
         }
     }
 

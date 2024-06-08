@@ -1,8 +1,8 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
-class Program
+public class Program
 {
     static void Main(string[] args)
     {
@@ -10,4 +10,3 @@ class Program
         verse.Memoryaid();
         Console.WriteLine("All good things to those who endure.");
     }
-}

@@ -1,11 +1,11 @@
-public class Word
-{
-    public string Text { get; private set; }
-    public bool hideThis { get; set; }
-
-    public Word(string text)
+ private class Word
     {
-        Text = text;
-        hideThis = false;
+        public string _text { get; private set; }
+        public bool _hideThis { get; set; }
+
+        public Word(string text)
+        {
+            _text = text;
+            _hideThis = false;
+        }
     }
-}

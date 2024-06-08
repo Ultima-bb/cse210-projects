@@ -1,23 +1,24 @@
-public class ScriptureReference
-{
-    public string Book { get; private set; }
-    public int Chapter { get; private set; }
-    public int Start { get; private set; }
-    public int End { get; private set; }
-
-    public ScriptureReference(string reference)
+private class ScriptureReference
     {
-        ParseReference(reference);
-    }
+        private string _book { get; private set; }
+        private int _chapter { get; private set; }
+        private int _start { get; private set; }
+        private int _end { get; private set; }
 
-    private void ParseReference(string reference)
-    {
-        string[] parts = reference.Split(':');
-        Book = parts[0];
-        string[] chapterVerse = parts[1].Split('-');
-        Chapter = int.Parse(chapterVerse[0]);
-        Start = int.Parse(chapterVerse[1]);
-        if (chapterVerse.Length == 1)
-            End = int.Parse(chapterVerse[1]);
+        private ScriptureReference(string reference)
+        {
+            ParseReference(reference);
+        }
+
+        private void ParseReference(string reference)
+        {
+            string[] parts = reference.Split(':');
+            _book = parts[0];
+            string[] chapterVerse = parts[1].Split('-');
+            _chapter = int.Parse(chapterVerse[0]);
+            _start = int.Parse(chapterVerse[1]);
+            if (chapterVerse.Length == 1)
+                _end = int.Parse(chapterVerse[1]);
+        }
     }
 }
