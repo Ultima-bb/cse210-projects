@@ -9,15 +9,15 @@ public class BreathingActivity : Activity
         while (countdown > 0)
         {
             Console.WriteLine("Breathe in...");
-            Thread.Sleep(2000); // Simulate breathing in
+            Thread.Sleep(2000);
             Console.WriteLine("Breathe out...");
-            Thread.Sleep(2000); // Simulate breathing out
+            Thread.Sleep(2000); 
             countdown -= 4;
 
             if (countdown > 0)
             {
                 Console.WriteLine("\b \b");
-                Thread.Sleep(5000); // Pause for 5 seconds
+                Thread.Sleep(5000); 
                 
             }
         }
