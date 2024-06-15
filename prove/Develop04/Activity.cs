@@ -28,14 +28,14 @@ public class Activity
         Console.WriteLine(_description);
         Console.WriteLine($"Setting duration to {_durationInSeconds} seconds.");
         Console.WriteLine("Prepare to begin...");
-        ShowSpinner(5); // Show spinner for 5 seconds
+        ShowSpinner(5); 
     }
 
     protected void End()
     {
         Console.WriteLine("Good job!");
         Console.WriteLine($"You completed {_name} activity in {_durationInSeconds} seconds.");
-        Thread.Sleep(3000); // Pause for 3 seconds
+        Thread.Sleep(3000);
     }
 
     protected void ShowSpinner(int seconds)
@@ -44,7 +44,7 @@ public class Activity
         for (int i = 0; i < seconds * 4; i++)
         {
             Console.Write("|");
-            Thread.Sleep(250); // Adjust speed as needed
+            Thread.Sleep(250); 
             Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
         }
         Console.WriteLine();
@@ -52,7 +52,6 @@ public class Activity
 
     protected virtual void PerformActivity()
     {
-        // Base class does not implement any specific activity
-        // Derived classes will override this method to provide specific behavior
+
     }
 }

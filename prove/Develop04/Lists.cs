@@ -17,7 +17,7 @@ public class ListingActivity : Activity
         string prompt = _prompts[random.Next(_prompts.Length)];
         Console.WriteLine(prompt);
         Console.WriteLine($"Please start listing items for {_durationInSeconds} seconds...");
-        Thread.Sleep(_durationInSeconds * 1000); // Pause for specified duration
+        Thread.Sleep(_durationInSeconds * 1000); 
         Console.WriteLine($"You listed {_durationInSeconds / 3} items.");
     }
 }

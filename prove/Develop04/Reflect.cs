@@ -31,17 +31,16 @@ public class ReflectionActivity : Activity
         {
             string prompt = _prompts[random.Next(_prompts.Length)];
             Console.WriteLine(prompt);
-            Thread.Sleep(5000); // Pause for 5 seconds
+            Thread.Sleep(5000);
 
-            // Select 3 random questions
             ShuffleArray(_questions);
             for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine(_questions[i]);
-                Thread.Sleep(5000); // Pause for 5 seconds
+                Thread.Sleep(5000); 
             }
 
-            countdown -= (5 + 3 * 5); // Adjust countdown based on prompts and questions
+            countdown -= (5 + 3 * 5);
         }
     }
 
@@ -51,7 +50,7 @@ public class ReflectionActivity : Activity
         for (int i = array.Length - 1; i > 0; i--)
         {
             int index = random.Next(i + 1);
-            // Swap elements
+
             string temp = array[index];
             array[index] = array[i];
             array[i] = temp;
