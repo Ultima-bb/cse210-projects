@@ -1,6 +1,6 @@
 public class Order
 {
-    private List<Product> _products = new List<Product>();
+    protected List<Product> _products = new List<Product>();
     public Customer Customer { get; set; }
 
     public Order(Customer _customer)
