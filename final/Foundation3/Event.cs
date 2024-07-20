@@ -6,7 +6,6 @@ public class Event
     protected TimeSpan _time;
     protected Address _address;
 
-    // Constructor
     public Event(string _title, string _description, DateTime _date, TimeSpan _time, Address _address)
     {
         this._title = _title;
